@@ -13,6 +13,8 @@ namespace BloodConnect
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("MaterialFonts.ttf", "mf");
+                    fonts.AddFont("FontAwesomeRegular.otf", "far");
                 });
 
 #if DEBUG
