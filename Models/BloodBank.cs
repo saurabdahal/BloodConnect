@@ -17,4 +17,4 @@ namespace BloodConnect.Models
         public string BloodBankAddress { get; set; }
     }
 }
-}
+

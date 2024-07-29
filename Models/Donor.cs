@@ -8,12 +8,13 @@ namespace BloodConnect.Models
 {
     /// <summary>
     /// Represents a donor in the BloodConnect system. Contains attributes that defines the donor's 
-    /// identification, contact details, age, blood group, and address.
+    /// identification, contact details, age, blood group, and address. These information are stored as the part of the signup process.
+    /// The Donor would be able to see and modify these details as needed.
     /// </summary>
     internal class Donor
     {
         /// <summary>
-        /// Unique identifier for the donor.
+        /// Unique identifier for the donor. It helps to locate the donor to make it easier to query.
         /// </summary>
         public string DonorId { get; set; }
 

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BloodConnect.Pages.Login"
+             xmlns:local="clr-namespace:BloodConnect.Components"
+
+           >
+
+    <Grid RowDefinitions=".3*, .7*">
+        <Image Source="dotnet_bot.png" Aspect="AspectFit" />
+        <Grid BackgroundColor="Yellow" Opacity="0.8"/>
+        <Label Text="WelCome to Blood Connect" HorizontalOptions="Center" VerticalOptions="Center"/>
+        <Grid Grid.Row="1" >
+            <RoundRectangle Margin="-5, 30, -5, 2" CornerRadius="50,30, 0, 0" Fill="White" />
+
+            <VerticalStackLayout Margin="30, 30, 30, 0" Padding="20, 0, 0, 0" >
+                <Label Text="Welcome User " HorizontalOptions="Center" FontSize="Header" />
+                <Label Text="Login to your account" HorizontalOptions="Center" FontSize="Small" />
+
+                <local:InputView Glyph="&#xf007;" PlaceHolder = "Enter Username"/>
+
+
+                <local:InputView Glyph="&#xf023;" PlaceHolder = "Enter Password" />
+
+
+                <Button BackgroundColor="Red" Text="Login" Margin="20" HorizontalOptions="End" WidthRequest="200"/>
+                <Label Text="Forgot password ?" Margin="10" HorizontalOptions="Center" TextColor="Red"/>
+                <Button BackgroundColor="Red" Text="Not a member ? Sign up to save lives." Margin="20" HorizontalOptions="Center" Clicked="DefineRole" />
+
+            </VerticalStackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

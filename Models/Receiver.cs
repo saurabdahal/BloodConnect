@@ -8,7 +8,7 @@ namespace BloodConnect.Models
 {
     /// <summary>
     /// Represents a receiver in the BloodConnect system. Contains attributes that defines the receiver's 
-    /// identification, contact details, age, blood group, and address.
+    /// identification, contact details, age, blood group, and address. These deatils are part of the receiver's basic information.
     /// </summary>
     internal class Receiver
     {
