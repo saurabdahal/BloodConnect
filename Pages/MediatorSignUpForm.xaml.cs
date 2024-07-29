@@ -6,4 +6,11 @@ public partial class MediatorSignUpForm : ContentPage
 	{
 		InitializeComponent();
 	}
+
+	private async void BackToLoginPage(object sender, EventArgs e)
+	{
+		await Navigation.PopToRootAsync(false);
+
+		Application.Current.MainPage = new NavigationPage(new Login());
+	}
 }

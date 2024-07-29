@@ -2,11 +2,47 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BloodConnect.Pages.DonorSignupForm"
-             Title="DonorSignupForm">
-    <VerticalStackLayout>
-        <Label 
-            Text="Donor"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             >
+    <Grid RowDefinitions="0.2*, 0.8*">
+        <Label Text="Create a Donor profile" FontSize="25" TextColor="Red" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+
+        <Grid Grid.Row="1">
+            <RoundRectangle BackgroundColor="Red" Opacity="0.1" CornerRadius="30" Margin="30" />
+
+            <VerticalStackLayout Margin="30" Padding="30">
+                <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">
+                    <Label Text="Full name" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <Entry Grid.Column="1" VerticalOptions="Center" Placeholder="Please enter you full name"/>
+                </Grid>
+
+                <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">
+                    <Label Text="Age" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <Entry Grid.Column="1" VerticalOptions="Center" Placeholder="Please enter your age. Must be greater than 18"/>
+                </Grid>
+                <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">
+                    <Label Text="Address" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <Entry Grid.Column="1" Placeholder="Please enter your address including your postal code" VerticalOptions="Center"/>
+                </Grid>
+                <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">
+                    <Label Text="Contact number" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <Entry Grid.Column="1" Placeholder="Please enter your phone number" VerticalOptions="Center"/>
+                </Grid>
+
+                <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">
+                    <Label Text="Emergency Contact number" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <Entry Grid.Column="1" Placeholder="Please enter your emergency contact number" VerticalOptions="Center"/>
+                </Grid>
+
+                <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">
+                    <Label Text="Blood group" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <Entry Grid.Column="1" Placeholder="Please specify you blood group" VerticalOptions="Center"/>
+                </Grid>
+
+                <Grid>
+                    <Button Text="Cancel"  Clicked="BackToLoginPage" BackgroundColor="Red" HorizontalOptions="End" WidthRequest="100" />
+                    <Button Text="Create an account" BackgroundColor="Red" WidthRequest="200"/>
+                </Grid>
+            </VerticalStackLayout>
+        </Grid>
+    </Grid>
 </ContentPage>
