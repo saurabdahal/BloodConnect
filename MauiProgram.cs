@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Logging;
-
 namespace BloodConnect
 {
     public static class MauiProgram

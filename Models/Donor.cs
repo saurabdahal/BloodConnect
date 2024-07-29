@@ -18,6 +18,10 @@ namespace BloodConnect.Models
         /// </summary>
         public string DonorId { get; set; }
 
+        public string username { get; set; }
+
+        public string password { get; set; }
+
         /// <summary>
         /// Full name of the donor.
         /// </summary>

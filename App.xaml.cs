@@ -1,4 +1,4 @@
-﻿using BloodConnect.Firebase;
+﻿using BloodConnect.Pages;
 using Microsoft.Maui.Controls;
 
 namespace BloodConnect
@@ -9,7 +9,7 @@ namespace BloodConnect
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new LoginPage());
+            MainPage = new NavigationPage(new Login());
         }
     }
 }
