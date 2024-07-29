@@ -11,29 +11,50 @@
         <Grid Grid.Row="1" >
             <RoundRectangle Margin="-5, 30, -5, 2" CornerRadius="50,30, 0, 0" Fill="White" />
 
-            <VerticalStackLayout Margin="30, 0, 30, 0" Padding="30, 0, 0, 0" >
+            <VerticalStackLayout Margin="30, 0, 30, 0" Padding="20, 0, 0, 0" >
                 <Label Text="Welcome User " HorizontalOptions="Center" FontSize="Medium" />
                 <Label Text="Login to your account" HorizontalOptions="Center" FontSize="Subtitle" />
 
                 <Grid ColumnDefinitions="0.2*, 0.7*">
                     <RoundRectangle Margin="30" CornerRadius="10" 
-                                    HeightRequest="50" BackgroundColor="Aqua" WidthRequest="50"
+                                    HeightRequest="50" BackgroundColor="Red" Opacity="0.4" WidthRequest="50"
                                     HorizontalOptions="Center" VerticalOptions="Center" 
                     />
                     <Image HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="40" HeightRequest="40">
                         <Image.Source>
                             <FontImageSource 
                                 FontFamily="far"
-                                Glyph="&#xf0e0;" 
+                                Glyph="&#xf007;" 
                                 Size="40"
                                 Color="red"
                                 >
-                                
                             </FontImageSource>
                         </Image.Source>
                     </Image>
 
+                    <Entry Grid.Column="1" Placeholder="Email or username" VerticalOptions="Center"/>
                 </Grid>
+
+                <Grid ColumnDefinitions="0.2*, 0.7*">
+                    <RoundRectangle Margin="10" CornerRadius="10" 
+                    HeightRequest="50" BackgroundColor="Red" Opacity="0.4" WidthRequest="50"
+                    HorizontalOptions="Center" VerticalOptions="Center" 
+    />
+                    <Image HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="40" HeightRequest="40">
+                        <Image.Source>
+                            <FontImageSource 
+                                FontFamily="fas"
+                                Glyph="&#xf023;" 
+                                Size="40"
+                                Color="red"
+                                >   
+                            </FontImageSource>
+                        </Image.Source>
+                    </Image>
+                    <Entry Grid.Column="1" Placeholder="Password" VerticalOptions="Center"/>
+                </Grid>
+
+                <Button BackgroundColor="Red" Text="Login" Margin="20" />
             </VerticalStackLayout>
         </Grid>
     </Grid>

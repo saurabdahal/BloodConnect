@@ -58,6 +58,7 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Fonts\FontAwesomeRegular.otf" />
+	  <None Remove="Resources\Fonts\FontAwesomeSolid.otf" />
 	  <None Remove="Resources\Fonts\MaterialFonts.ttf" />
 	</ItemGroup>
 
