@@ -73,19 +73,25 @@
 	  <Compile Update="Pages\DefineRole.xaml.cs">
 	    <DependentUpon>DefineRole.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Pages\ReceiverSignUpForm.xaml.cs">
+	    <DependentUpon>ReceiverSignUpForm.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
 	  <MauiXaml Update="Components\InputView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Firebase\LoginPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Pages\Login.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\DefineRole.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\MediatorSignUpForm.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\ReceiverSignUpForm.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

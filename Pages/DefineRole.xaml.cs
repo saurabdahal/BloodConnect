@@ -45,13 +45,13 @@ public partial class DefineRole : ContentPage
         switch (selectedRole)
         {
             case 1:
-                selectedRoleDescription.Text = "Boom, you are a donor";
+                await Navigation.PushAsync(new DonorSignupForm());
                 break;
             case 2:
-                selectedRoleDescription.Text = "Boom, you are a receiver";
+                await Navigation.PushAsync(new ReceiverSignUpForm());
                 break;
             case 3:
-                selectedRoleDescription.Text = "Boom, you are a mediator";
+                await Navigation.PushAsync(new MediatorSignUpForm());
                 break;
             default:
                 await DisplayAlert("Error", "Your selection is not valid. Please select a role first", "OK");
