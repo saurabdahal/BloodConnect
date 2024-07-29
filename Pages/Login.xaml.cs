@@ -6,4 +6,9 @@ public partial class Login : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private async void DefineRole(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new DefineRole());
+    }
 }
