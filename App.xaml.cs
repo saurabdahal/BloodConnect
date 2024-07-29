@@ -1,4 +1,7 @@
-﻿namespace BloodConnect
+﻿using BloodConnect.Firebase;
+using Microsoft.Maui.Controls;
+
+namespace BloodConnect
 {
     public partial class App : Application
     {
@@ -6,7 +9,7 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new NavigationPage(new LoginPage());
         }
     }
 }
