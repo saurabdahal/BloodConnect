@@ -14,6 +14,8 @@ public partial class InputView : ContentView
     public static readonly BindableProperty PlaceHolderProperty =
             BindableProperty.Create(nameof(PlaceHolder), typeof(string), typeof(InputView), default(string));
 
+    public static BindableProperty TextProperty = BindableProperty.Create(nameof(Text), typeof(string), typeof(InputView), default(string));
+
     public string Glyph
     {
         get => (string)GetValue(GlyphProperty);
@@ -24,6 +26,12 @@ public partial class InputView : ContentView
     {
         get => (string)GetValue(PlaceHolderProperty);
         set => SetValue(PlaceHolderProperty, value);
+    }
+
+    public string Text
+    {
+        get => (string) GetValue(TextProperty);
+        set => SetValue (TextProperty, value);
     }
 
 }
