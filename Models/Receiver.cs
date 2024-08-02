@@ -15,12 +15,12 @@ namespace BloodConnect.Models
         /// <summary>
         /// Unique identifier for the receiver.
         /// </summary>
-        public string ReceiverId { get; set; }
+        public string ReceiverId { get; set; } = string.Empty;
 
         /// <summary>
         /// Full name of the receiver.
         /// </summary>
-        public string ReceiverName { get; set; }
+        public string ReceiverName { get; set; } = string.Empty;
 
         /// <summary>
         /// Age of the receiver.
@@ -30,26 +30,26 @@ namespace BloodConnect.Models
         /// <summary>
         /// Email address of the receiver.
         /// </summary>
-        public string ReceiverEmail { get; set; }
+        public string ReceiverEmail { get; set; } = string.Empty;
 
         /// <summary>
         /// Phone number of the receiver.
         /// </summary>
-        public string ReceiverPhone { get; set; }
+        public string ReceiverPhone { get; set; } = string.Empty;
 
         /// <summary>
         /// Emergency contact information for the receiver.
         /// </summary>
-        public string ReceiverEmergencyContact { get; set; }
+        public string ReceiverEmergencyContact { get; set; } = string.Empty;
 
         /// <summary>
         /// Blood group of the receiver.
         /// </summary>
-        public string ReceiverBloodGroup { get; set; }
+        public string ReceiverBloodGroup { get; set; } = string.Empty;
 
         /// <summary>
         /// Address of the receiver.
         /// </summary>
-        public string ReceiverAddress { get; set; }
+        public string ReceiverAddress { get; set; } = string.Empty;
     }
 }

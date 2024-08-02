@@ -1,5 +1,8 @@
-# BloodConnect 
-BloodConnect is a .NET MAUI mobile app that connects blood donors with blood banks and recipients. The app allows users to register as donors, schedule appointments, track donation history, and receive notifications. Blood banks can manage and update their inventory in real-time.
+# BloodConnect
+### An attempt to make saving lives easier
+
+Blood connect is a way to make it easier to donate and receive blood. It provides a platform where people can signup for blood donations, 
+see blood donation events and request certain types of blood.
 
 ## Objectives
 
@@ -13,20 +16,22 @@ BloodConnect is a .NET MAUI mobile app that connects blood donors with blood ban
 
 **Real-time Updates:** Keep blood availability and current appointments.
 
-## Git Features Utilized
+The app is created in .NET MAUI and collaborated through version control system, i.e. GIT
 
-### Branching
+The project is a collaboration between two students of the cambrian college, namely, Saurav Dahal and Bibas Bhujel.
 
-**Main Branch:** Stable release version.
+Development Process
 
-**a00298911:** Integrate new features and fixes from my side.
+The project follows a structured development process using Git for version control. This ensures effective collaboration, version tracking, and conflict resolution.
+Branch Management
 
-**a00269074:** Integrate new features and fixes from Saurab side.
+    Main Branch: Contains the stable version of the project.
+    Feature Branches: Each new feature is developed in its own branch. After thorough review and testing, the feature branches
+    are merged into the main branch to prevent conflicts and ensure stability. 
 
-### Commits
+Git Features Used
 
-Descriptive commit messages for clear version history.
+    Branching: Utilized to manage different development streams and features. Each branch focuses on a specific feature or bug fix.
+    Merging: After successful reviews and testing, feature branches are merged into the main branch.
+    Commit Messages: Detailed commit messages provide insights into the changes made and the reasons behind them for better project management and understanding.
 
-### Merging
-
-Tested features and fixes from 2 branches are merged into the main branch.

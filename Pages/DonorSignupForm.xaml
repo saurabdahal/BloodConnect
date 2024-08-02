@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:BloodConnect.ViewModels"
              x:Class="BloodConnect.Pages.DonorSignupForm"
+             x:DataType="vm:DonorSignupFormViewModel"             
              >
     <Grid RowDefinitions="0.2*, 0.8*">
         <Label Text="Create a Donor profile" FontSize="25" TextColor="Red" HorizontalOptions="Center" VerticalOptions="Center"></Label>
@@ -12,35 +14,44 @@
             <VerticalStackLayout Margin="30" Padding="30">
                 <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">
                     <Label Text="Full name" VerticalOptions="Center" HorizontalOptions="Center"/>
-                    <Entry Grid.Column="1" VerticalOptions="Center" Placeholder="Please enter you full name"/>
+                    <Entry Grid.Column="1" VerticalOptions="Center" Placeholder="Please enter you full name" Text="{Binding Fullname}"/>
+                </Grid>
+                <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">
+                    <Label Text="Username" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <Entry Grid.Column="1" VerticalOptions="Center" Placeholder="Please enter your username" Text="{Binding Username}"/>
+                </Grid>
+
+                <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">
+                    <Label Text="Password" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <Entry Grid.Column="1" VerticalOptions="Center" Placeholder="Please enter your password" Text="{Binding Password}"/>
                 </Grid>
 
                 <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">
                     <Label Text="Age" VerticalOptions="Center" HorizontalOptions="Center"/>
-                    <Entry Grid.Column="1" VerticalOptions="Center" Placeholder="Please enter your age. Must be greater than 18"/>
+                    <Entry Grid.Column="1" VerticalOptions="Center" Placeholder="Please enter your age. Must be greater than 18" Text="{Binding Age}"/>
                 </Grid>
                 <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">
                     <Label Text="Address" VerticalOptions="Center" HorizontalOptions="Center"/>
-                    <Entry Grid.Column="1" Placeholder="Please enter your address including your postal code" VerticalOptions="Center"/>
+                    <Entry Grid.Column="1" Placeholder="Please enter your address including your postal code" VerticalOptions="Center" Text="{Binding Address}"/>
                 </Grid>
                 <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">
                     <Label Text="Contact number" VerticalOptions="Center" HorizontalOptions="Center"/>
-                    <Entry Grid.Column="1" Placeholder="Please enter your phone number" VerticalOptions="Center"/>
+                    <Entry Grid.Column="1" Placeholder="Please enter your phone number" VerticalOptions="Center" Text="{Binding ContactNumber}"/>
                 </Grid>
 
                 <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">
                     <Label Text="Emergency Contact number" VerticalOptions="Center" HorizontalOptions="Center"/>
-                    <Entry Grid.Column="1" Placeholder="Please enter your emergency contact number" VerticalOptions="Center"/>
+                    <Entry Grid.Column="1" Placeholder="Please enter your emergency contact number" VerticalOptions="Center" Text="{Binding EmergencyContactNumber}"/>
                 </Grid>
 
                 <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">
                     <Label Text="Blood group" VerticalOptions="Center" HorizontalOptions="Center"/>
-                    <Entry Grid.Column="1" Placeholder="Please specify you blood group" VerticalOptions="Center"/>
+                    <Entry Grid.Column="1" Placeholder="Please specify you blood group" VerticalOptions="Center" Text="{Binding BloodGroup}"/>
                 </Grid>
 
                 <Grid>
                     <Button Text="Cancel"  Clicked="BackToLoginPage" BackgroundColor="Red" HorizontalOptions="End" WidthRequest="100" />
-                    <Button Text="Create an account" BackgroundColor="Red" WidthRequest="200"/>
+                    <Button Text="Create an account" Command="{Binding CreateDonorAccountCommand}" BackgroundColor="Red" WidthRequest="200"/>
                 </Grid>
             </VerticalStackLayout>
         </Grid>
