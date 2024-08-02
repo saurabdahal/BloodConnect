@@ -18,6 +18,9 @@ namespace BloodConnect.ViewModels
         private string username;
 
         [ObservableProperty]
+        private string email;
+
+        [ObservableProperty]
         private string password;
 
         [ObservableProperty]
@@ -39,42 +42,47 @@ namespace BloodConnect.ViewModels
         private readonly FirebaseClient firebaseClient;
 
         public Command CreateDonorAccountCommand { get; }
+
         public DonorSignupFormViewModel()
         {
             firebaseAuth = new FirebaseAuthProvider(new FirebaseConfig("AIzaSyCiS3d - wBcf7KpGHgsxDo87pHMilLeQKD8"));
             firebaseClient = new FirebaseClient("https://bloodconnect-7c36f-default-rtdb.firebaseio.com/");
-            
+
             CreateDonorAccountCommand = new Command(CreateDonorAccount);
         }
 
         private async void CreateDonorAccount()
         {
-            // var authId = await firebaseAuth.CreateUserWithEmailAndPasswordAsync("saurab@gmail.com", "!Dahal123");
-            var isSignedIn = await firebaseAuth.SignInWithEmailAndPasswordAsync("gsaurab@gmail.com", "!Dahal123");
-            if (isSignedIn.User.Email != null)
+            try
             {
-                await firebaseClient.Child("Donor")
-                    .PostAsync(new Donor
+                var authResult = await firebaseAuth.CreateUserWithEmailAndPasswordAsync(Email, Password);
+                if (authResult.User != null)
+                {
+                    // User created successfully, proceed with saving donor data
+                    var donor = new Donor
                     {
+                        DonorName = Fullname,
+                        username = Username,
+                        // Consider hashing password before storing
+                        password = Password,
+                        DonorAge = int.Parse(Age),
+                        DonorAddress = Address,
+                        DonorBloodGroup = BloodGroup,
+                        DonorEmail = authResult.User.Email,
+                        DonorEmergencyContact = EmergencyContactNumber,
+                        DonorPhone = ContactNumber
+                    };
 
-                        DonorName = "dadas",
-                        username = "saurab",
-                        password = "dahal",
-                        DonorAge = 28,
-                        DonorAddress = "dadadas",
-                        DonorBloodGroup = "A",
-                        DonorEmail = "dasdadadadad",
-                        DonorEmergencyContact = "646464646",
-                        DonorId = "userid-1",
-                        DonorPhone = "31313131313"
-                    }
-                    );
+                    await firebaseClient.Child("Donor").PostAsync(donor);
+
+                    // Handle successful account creation (e.g., navigation)
+                }
             }
-            else
+            catch (FirebaseAuthException e)
             {
-                App.Current.MainPage.DisplayAlert("ERROR", "Error signing in", "OK");
+                // Handle sign-in errors
+                App.Current.MainPage.DisplayAlert("Error", $"Firebase Authentication Error: {e.Message}", "OK");
             }
         }
-
     }
 }
