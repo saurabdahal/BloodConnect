@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BloodConnect.Pages.Login"
              xmlns:local="clr-namespace:BloodConnect.Components"
-
+             xmlns:vm="clr-namespace:BloodConnect.ViewModels"
+             x:DataType="vm:LoginViewModel"
            >
 
     <Grid RowDefinitions=".3*, .7*">
@@ -17,10 +18,10 @@
                 <Label Text="Welcome User " HorizontalOptions="Center" FontSize="Header" />
                 <Label Text="Login to your account" HorizontalOptions="Center" FontSize="Small" />
 
-                <local:InputView Glyph="&#xf007;" PlaceHolder = "Enter Username"/>
+                <local:InputView Glyph="&#xf007;" PlaceHolder = "Enter Username" />
 
 
-                <local:InputView Glyph="&#xf023;" PlaceHolder = "Enter Password" />
+                <local:InputView Glyph="&#xf023;" PlaceHolder = "Enter Password"  />
 
 
                 <Button BackgroundColor="Red" Text="Login" Margin="20" HorizontalOptions="End" WidthRequest="200"/>

@@ -53,7 +53,13 @@ namespace BloodConnect.ViewModels
 
         private async void CreateDonorAccount()
         {
+<<<<<<< HEAD
             try
+=======
+            // var authId = await firebaseAuth.CreateUserWithEmailAndPasswordAsync("saurab@gmail.com", "!Dahal123");
+            var isSignedIn = await firebaseAuth.SignInWithEmailAndPasswordAsync("saurab@gmail.com", "!Dahal123");
+            if (isSignedIn.User.Email != null)
+>>>>>>> cd543fd4fbb9d01d7a765356066a49064c430443
             {
                 var authResult = await firebaseAuth.CreateUserWithEmailAndPasswordAsync(Email, Password);
                 if (authResult.User != null)
