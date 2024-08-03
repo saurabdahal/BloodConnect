@@ -13,6 +13,10 @@ namespace BloodConnect
         protected override void OnCreate(Android.OS.Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+<<<<<<< HEAD
+           // FirebaseApp.InitializeApp(this);
+=======
+>>>>>>> cd543fd4fbb9d01d7a765356066a49064c430443
         }
     }
 }
