@@ -18,10 +18,10 @@
                 <Label Text="Welcome User " HorizontalOptions="Center" FontSize="Header" />
                 <Label Text="Login to your account" HorizontalOptions="Center" FontSize="Small" />
 
-                <local:InputView Glyph="&#xf007;" PlaceHolder = "Enter Username" />
+                <local:InputView Glyph="&#xf007;" PlaceHolder = "Enter Username" Text="{Binding login.username}" />
 
 
-                <local:InputView Glyph="&#xf023;" PlaceHolder = "Enter Password"  />
+                <local:InputView Glyph="&#xf023;" PlaceHolder = "Enter Password" Text="{Binding login.password}" />
 
 
                 <Button BackgroundColor="Red" Text="Login" Margin="20" HorizontalOptions="End" WidthRequest="200"/>

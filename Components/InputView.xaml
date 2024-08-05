@@ -21,6 +21,6 @@
             </Image.Source>
         </Image>
 
-        <Entry Grid.Column="1" Placeholder="{Binding PlaceHolder, Source={x:Reference thisView}}" VerticalOptions="Center"/>
+        <Entry Grid.Column="1" Placeholder="{Binding PlaceHolder, Source={x:Reference thisView}}" Text="{Binding Text, Source={x:Reference thisView} }" VerticalOptions="Center"/>
     </Grid>
 </ContentView>

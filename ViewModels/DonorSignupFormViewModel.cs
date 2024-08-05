@@ -15,9 +15,6 @@ namespace BloodConnect.ViewModels
         private string fullname;
 
         [ObservableProperty]
-        private string username;
-
-        [ObservableProperty]
         private string email;
 
         [ObservableProperty]
@@ -53,35 +50,34 @@ namespace BloodConnect.ViewModels
 
         private async void CreateDonorAccount()
         {
-<<<<<<< HEAD
             try
-=======
-            // var authId = await firebaseAuth.CreateUserWithEmailAndPasswordAsync("saurab@gmail.com", "!Dahal123");
-            var isSignedIn = await firebaseAuth.SignInWithEmailAndPasswordAsync("saurab@gmail.com", "!Dahal123");
-            if (isSignedIn.User.Email != null)
->>>>>>> cd543fd4fbb9d01d7a765356066a49064c430443
             {
-                var authResult = await firebaseAuth.CreateUserWithEmailAndPasswordAsync(Email, Password);
-                if (authResult.User != null)
+                // var authId = await firebaseAuth.CreateUserWithEmailAndPasswordAsync("saurab@gmail.com", "!Dahal123");
+                var isSignedIn = await firebaseAuth.SignInWithEmailAndPasswordAsync("saurab@gmail.com", "!Dahal123");
+                if (isSignedIn.User.Email != null)
                 {
-                    // User created successfully, proceed with saving donor data
-                    var donor = new Donor
+                    var authResult = await firebaseAuth.CreateUserWithEmailAndPasswordAsync(Email, Password);
+                    if (authResult.User != null)
                     {
-                        DonorName = Fullname,
-                        username = Username,
-                        // Consider hashing password before storing
-                        password = Password,
-                        DonorAge = int.Parse(Age),
-                        DonorAddress = Address,
-                        DonorBloodGroup = BloodGroup,
-                        DonorEmail = authResult.User.Email,
-                        DonorEmergencyContact = EmergencyContactNumber,
-                        DonorPhone = ContactNumber
-                    };
+                        // User created successfully, proceed with saving donor data
+                        var donor = new Donor
+                        {
+                            DonorName = Fullname,
+                            username = Username,
+                            // Consider hashing password before storing
+                            password = Password,
+                            DonorAge = int.Parse(Age),
+                            DonorAddress = Address,
+                            DonorBloodGroup = BloodGroup,
+                            DonorEmail = authResult.User.Email,
+                            DonorEmergencyContact = EmergencyContactNumber,
+                            DonorPhone = ContactNumber
+                        };
 
-                    await firebaseClient.Child("Donor").PostAsync(donor);
+                        await firebaseClient.Child("Donor").PostAsync(donor);
 
-                    // Handle successful account creation (e.g., navigation)
+                        // Handle successful account creation (e.g., navigation)
+                    }
                 }
             }
             catch (FirebaseAuthException e)
