@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BloodConnect.Pages.Profile.DonorProfile">
+
+    <ScrollView Padding="20">
+        <VerticalStackLayout Spacing="20">
+
+            <!-- Profile Card -->
+            <Frame 
+                CornerRadius="10" 
+                HasShadow="True" 
+                Padding="10" 
+                BackgroundColor="White">
+
+                <Grid>
+                    <!-- Define columns: one for the image and one for the details -->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Profile Picture -->
+                    <Image 
+                        Source="dotnet_bot.png" 
+                        Aspect="AspectFit" 
+                        Grid.Column="0" 
+                        HeightRequest="150" 
+                        WidthRequest="150" 
+                        Margin="0,0,10,0" />
+
+                    <!-- Details -->
+                    <VerticalStackLayout Grid.Column="1" Spacing="10" Padding="20" BackgroundColor="OrangeRed">
+                        <Label 
+                            TextColor="Black"
+                            Text="Saurav Dahal" 
+                            FontSize="24" 
+                            FontAttributes="Bold" 
+                            HorizontalOptions="Start" />
+                        <Label 
+                            TextColor="Black"
+                            Text="7059216266" 
+                            FontSize="18" 
+                            HorizontalOptions="Start" />
+                        <Label 
+                            TextColor="Black"
+                            Text="saurab@gmail.com" 
+                            FontSize="18" 
+                            HorizontalOptions="Start" />
+                    </VerticalStackLayout>
+                </Grid>
+            </Frame>
+
+            <!-- Action Button -->
+            <Button 
+                Text="Create donation request" 
+                BackgroundColor="OrangeRed" 
+                TextColor="White" 
+                CornerRadius="10" 
+                HeightRequest="50" 
+                 />
+
+
+
+            <VerticalStackLayout Spacing="20" HeightRequest="500">
+
+                <!-- Grid Layout -->
+                <Grid Padding="15" BackgroundColor="White" HeightRequest="500">
+                    <!-- Define columns -->
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Define rows -->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <!-- Header Row -->
+                    <Label LineBreakMode="WordWrap" Margin="0,0,10,0" TextColor="Black" Text="Chapter" Grid.Column="0" Grid.Row="0" FontAttributes="Bold" />
+                    <Label LineBreakMode="WordWrap" Margin="0,0,10,0"  TextColor="Black" Text="Description" Grid.Column="1" Grid.Row="0" FontAttributes="Bold" />
+                    <Label LineBreakMode="WordWrap" Margin="0,0,10,0" TextColor="Black" Text="Details" Grid.Column="2" Grid.Row="0" FontAttributes="Bold" />
+
+                    <!-- Data Rows -->
+                    <Label LineBreakMode="WordWrap" Margin="0,0,50,0" TextColor="Black" Text="1. Introduction to .NET MAUI" Grid.Column="0" Grid.Row="1" />
+                    <Label LineBreakMode="WordWrap" Margin="0,0,10,0" TextColor="Black" Text="Learn about .NET MAUI and what it provides." Grid.Column="1" Grid.Row="1" />
+                    <Label LineBreakMode="WordWrap" Margin="0,0,10,0" TextColor="Black" Text="Details" Grid.Column="2" Grid.Row="1" />
+
+                    <Label TextColor="Black" LineBreakMode="WordWrap" Margin="0,0,10,0" Text="2. Anatomy of an app" Grid.Column="0" Grid.Row="2" />
+                    <Label TextColor="Black" LineBreakMode="WordWrap" Text="Learn about the visual elements in .NET MAUI" Grid.Column="1" Grid.Row="2" />
+                    <Label TextColor="Black" LineBreakMode="WordWrap" Text="Details" Grid.Column="2" Grid.Row="2" />
+
+                    <Label LineBreakMode="WordWrap" Margin="0,0,10,0" TextColor="Black" Text="3. Text" Grid.Column="0" Grid.Row="3" />
+                    <Label LineBreakMode="WordWrap" TextColor="Black" Text="Learn about the .NET MAUI controls that display text." Grid.Column="1" Grid.Row="3" />
+                    <Label LineBreakMode="WordWrap" TextColor="Black" Text="Details" Grid.Column="2" Grid.Row="3" />
+
+                    <Label LineBreakMode="WordWrap" Margin="0,0,10,0" TextColor="Black" Text="4. Dealing with sizes" Grid.Column="0" Grid.Row="4" />
+                    <Label LineBreakMode="WordWrap" TextColor="Black" Text="Learn how to size .NET MAUI controls on screen." Grid.Column="1" Grid.Row="4" />
+                    <Label LineBreakMode="WordWrap" TextColor="Black" Text="Details" Grid.Column="2" Grid.Row="4" />
+
+                    <Label LineBreakMode="WordWrap" TextColor="Black" Text="5. XAML vs code" Grid.Column="0" Grid.Row="5" />
+                    <Label LineBreakMode="WordWrap" MaxLines="2" TextColor="Black" Text="Learn more about creating your UI in XAML." Grid.Column="1" Grid.Row="5" />
+                    <Label LineBreakMode="WordWrap" TextColor="Black" Text="Details" Grid.Column="2" Grid.Row="5" />
+                </Grid>
+
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

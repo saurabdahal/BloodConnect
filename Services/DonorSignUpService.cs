@@ -20,6 +20,7 @@ namespace BloodConnect.Services
            
                 Donor donor = new Donor
                 {
+                    DonorId = donorDictionary["donorId"],
                     DonorName = donorDictionary["fullname"],
 
                     DonorAge = int.Parse(donorDictionary["age"]),

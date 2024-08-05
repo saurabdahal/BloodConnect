@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:vm="clr-namespace:BloodConnect.ViewModels"
              x:Class="BloodConnect.Pages.Login"
-             xmlns:local="clr-namespace:BloodConnect.Components"
-             xmlns:vm="clr-namespace:BloodConnect.ViewModels"
              x:DataType="vm:LoginViewModel"
+             xmlns:local="clr-namespace:BloodConnect.Components"
            >
 
     <Grid RowDefinitions=".3*, .7*">
@@ -18,15 +18,55 @@
                 <Label Text="Welcome User " HorizontalOptions="Center" FontSize="Header" />
                 <Label Text="Login to your account" HorizontalOptions="Center" FontSize="Small" />
 
-                <local:InputView Glyph="&#xf007;" PlaceHolder = "Enter Username" Text="{Binding login.username}" />
 
 
-                <local:InputView Glyph="&#xf023;" PlaceHolder = "Enter Password" Text="{Binding login.password}" />
+
+                <Grid ColumnDefinitions="0.2*, 0.7*">
+                    <RoundRectangle Margin="30" CornerRadius="10" 
+                        HeightRequest="50" BackgroundColor="Red" Opacity="0.2" WidthRequest="50"
+                        HorizontalOptions="Center" VerticalOptions="Center" 
+/>
+                    <Image HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="40" HeightRequest="40">
+                        <Image.Source>
+                            <FontImageSource 
+                                FontFamily="fas"
+                                Glyph="&#xf007;" 
+                                Size="40"
+                                Color="red"
+                                >
+                            </FontImageSource>
+                        </Image.Source>
+                    </Image>
+
+                    <Entry Grid.Column="1" TextColor="Black" Placeholder="enter email" Text="{Binding Username}" VerticalOptions="Center"/>
+                </Grid>
+
+                <Grid ColumnDefinitions="0.2*, 0.7*">
+                    <RoundRectangle Margin="30" CornerRadius="10" 
+                        HeightRequest="50" BackgroundColor="Red" Opacity="0.2" WidthRequest="50"
+                        HorizontalOptions="Center" VerticalOptions="Center" 
+/>
+                    <Image HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="40" HeightRequest="40">
+                        <Image.Source>
+                            <FontImageSource 
+                                FontFamily="fas"
+                                Glyph="&#xf023;" 
+                                Size="40"
+                                Color="red"
+                                >
+                            </FontImageSource>
+                        </Image.Source>
+                    </Image>
+
+                    <Entry Grid.Column="1" TextColor="Black" Placeholder="enter password" Text="{Binding Password}" VerticalOptions="Center"/>
+                </Grid>
+
+                <!--<local:InputView Glyph="&#xf023;" PlaceHolder = "Enter Password" Text="{Binding Password}" />-->
 
 
-                <Button BackgroundColor="Red" Text="Login" Margin="20" HorizontalOptions="End" WidthRequest="200"/>
+                <Button BackgroundColor="Red" Text="Login" Margin="20" HorizontalOptions="End" Command="{Binding SignInCommand}" WidthRequest="200"/>
                 <Label Text="Forgot password ?" Margin="10" HorizontalOptions="Center" TextColor="Red"/>
-                <Button BackgroundColor="Red" Text="Not a member ? Sign up to save lives." Margin="20" HorizontalOptions="Center" Clicked="DefineRole" />
+                <Button BackgroundColor="Red" Text="Not a member ? Sign up to save lives."  Margin="20" HorizontalOptions="Center" Clicked="DefineRole" />
 
             </VerticalStackLayout>
         </Grid>

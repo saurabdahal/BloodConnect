@@ -17,9 +17,6 @@ namespace BloodConnect.ViewModels
         private string fullname;
 
         [ObservableProperty]
-        private string username;
-
-        [ObservableProperty]
         private string email;
 
         [ObservableProperty]
@@ -56,36 +53,39 @@ namespace BloodConnect.ViewModels
 
         private async void CreateDonorAccount()
         {
-<<<<<<< HEAD
+
+
             try
-=======
-            // var authId = await firebaseAuth.CreateUserWithEmailAndPasswordAsync("saurab@gmail.com", "!Dahal123");
-            var isSignedIn = await firebaseAuth.SignInWithEmailAndPasswordAsync("saurab@gmail.com", "!Dahal123");
-            if (isSignedIn.User.Email != null)
->>>>>>> cd543fd4fbb9d01d7a765356066a49064c430443
             {
-                var authResult = await firebaseAuth.CreateUserWithEmailAndPasswordAsync(Email, Password);
-                if (authResult.User != null)
+
+                 var authId = await firebaseAuth.CreateUserWithEmailAndPasswordAsync(Email, Password);
+                
+                //var isSignedIn = await firebaseAuth.SignInWithEmailAndPasswordAsync("saurab@gmail.com", "!Dahal123");
+                if (authId.FirebaseToken != null)
+
                 {
+                    // var authResult = await firebaseAuth.CreateUserWithEmailAndPasswordAsync(Email, Password);
+
+
                     // User created successfully, proceed with saving donor data
-                    var donor = new Donor
-                    {
-                        DonorName = Fullname,
-                        username = Username,
-                        // Consider hashing password before storing
-                        password = Password,
-                        DonorAge = int.Parse(Age),
-                        DonorAddress = Address,
-                        DonorBloodGroup = BloodGroup,
-                        DonorEmail = authResult.User.Email,
-                        DonorEmergencyContact = EmergencyContactNumber,
-                        DonorPhone = ContactNumber
-                    };
+                    // Creating a HashMap with keys of type string and values of type int
+                    Dictionary<string, string> donor = new Dictionary<string, string>();
 
-                    await firebaseClient.Child("Donor").PostAsync(donor);
+                    donor.Add("donorId", authId.User.LocalId);
+                    donor.Add("fullname", Fullname);
+                    donor.Add("age", Age);
+                    donor.Add("address", Address);
+                    donor.Add("bloodgroup", BloodGroup);
+                    donor.Add("donoremail", Email);
+                    donor.Add("emergencycontact", EmergencyContactNumber);
+                    donor.Add("donorphone", ContactNumber);
 
-                    // Handle successful account creation (e.g., navigation)
-                }
+                  
+                    donorSignUpService.SignUp(donor, firebaseClient);
+                    Application.Current.MainPage = new NavigationPage(new Login());         
+                    }
+                
+
             }
             catch (FirebaseAuthException e)
             {
