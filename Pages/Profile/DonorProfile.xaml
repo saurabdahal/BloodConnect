@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BloodConnect.Pages.Profile.DonorProfile">
+             x:Class="BloodConnect.Pages.Profile.DonorProfile"
+             xmlns:vm="clr-namespace:BloodConnect.ViewModels"
+             x:DataType="vm:DonorProfileViewModel"
+             xmlns:model ="clr-namespace:BloodConnect.Models"
+             >
+
 
     <ScrollView Padding="20">
         <VerticalStackLayout Spacing="20">
@@ -33,18 +38,18 @@
                     <VerticalStackLayout Grid.Column="1" Spacing="10" Padding="20" BackgroundColor="OrangeRed">
                         <Label 
                             TextColor="Black"
-                            Text="Saurav Dahal" 
+                            Text="{Binding Fullname}" 
                             FontSize="24" 
                             FontAttributes="Bold" 
                             HorizontalOptions="Start" />
                         <Label 
                             TextColor="Black"
-                            Text="7059216266" 
+                            Text="{Binding Phone}" 
                             FontSize="18" 
                             HorizontalOptions="Start" />
                         <Label 
                             TextColor="Black"
-                            Text="saurab@gmail.com" 
+                            Text="{Binding Address}" 
                             FontSize="18" 
                             HorizontalOptions="Start" />
                     </VerticalStackLayout>
@@ -58,59 +63,68 @@
                 TextColor="White" 
                 CornerRadius="10" 
                 HeightRequest="50" 
+                Clicked="NavigateToDonationRequestPage"
                  />
 
 
+                <Label Text="My Blood Requests"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+            <Grid ColumnSpacing="1" RowSpacing="1" Margin="0">
+                <!-- Define columns -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-            <VerticalStackLayout Spacing="20" HeightRequest="500">
+                <!-- Define rows -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Text="Date" FontSize="Medium"
+                           Grid.Column="0" 
+                           Padding="5" />
+                <Label Text="Donation Bags"  FontSize="Medium"
+                       Grid.Column="1" 
+                       Padding="5" />
+                <Label Text="Notes" FontSize="Medium"
+                       Grid.Column="2" 
+                       Padding="5" />   
+            </Grid>
+            <ListView ItemsSource="{Binding BloodRequests}">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="model:BloodRequestModel">
+                        <ViewCell>
+                            <Grid ColumnSpacing="1" RowSpacing="1" Margin="0">
+                                <!-- Define columns -->
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
 
-                <!-- Grid Layout -->
-                <Grid Padding="15" BackgroundColor="White" HeightRequest="500">
-                    <!-- Define columns -->
-                    <Grid.ColumnDefinitions >
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
+                                <!-- Define rows -->
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
 
-                    <!-- Define rows -->
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-
-                    <!-- Header Row -->
-                    <Label LineBreakMode="WordWrap" Margin="0,0,10,0" TextColor="Black" Text="Chapter" Grid.Column="0" Grid.Row="0" FontAttributes="Bold" />
-                    <Label LineBreakMode="WordWrap" Margin="0,0,10,0"  TextColor="Black" Text="Description" Grid.Column="1" Grid.Row="0" FontAttributes="Bold" />
-                    <Label LineBreakMode="WordWrap" Margin="0,0,10,0" TextColor="Black" Text="Details" Grid.Column="2" Grid.Row="0" FontAttributes="Bold" />
-
-                    <!-- Data Rows -->
-                    <Label LineBreakMode="WordWrap" Margin="0,0,50,0" TextColor="Black" Text="1. Introduction to .NET MAUI" Grid.Column="0" Grid.Row="1" />
-                    <Label LineBreakMode="WordWrap" Margin="0,0,10,0" TextColor="Black" Text="Learn about .NET MAUI and what it provides." Grid.Column="1" Grid.Row="1" />
-                    <Label LineBreakMode="WordWrap" Margin="0,0,10,0" TextColor="Black" Text="Details" Grid.Column="2" Grid.Row="1" />
-
-                    <Label TextColor="Black" LineBreakMode="WordWrap" Margin="0,0,10,0" Text="2. Anatomy of an app" Grid.Column="0" Grid.Row="2" />
-                    <Label TextColor="Black" LineBreakMode="WordWrap" Text="Learn about the visual elements in .NET MAUI" Grid.Column="1" Grid.Row="2" />
-                    <Label TextColor="Black" LineBreakMode="WordWrap" Text="Details" Grid.Column="2" Grid.Row="2" />
-
-                    <Label LineBreakMode="WordWrap" Margin="0,0,10,0" TextColor="Black" Text="3. Text" Grid.Column="0" Grid.Row="3" />
-                    <Label LineBreakMode="WordWrap" TextColor="Black" Text="Learn about the .NET MAUI controls that display text." Grid.Column="1" Grid.Row="3" />
-                    <Label LineBreakMode="WordWrap" TextColor="Black" Text="Details" Grid.Column="2" Grid.Row="3" />
-
-                    <Label LineBreakMode="WordWrap" Margin="0,0,10,0" TextColor="Black" Text="4. Dealing with sizes" Grid.Column="0" Grid.Row="4" />
-                    <Label LineBreakMode="WordWrap" TextColor="Black" Text="Learn how to size .NET MAUI controls on screen." Grid.Column="1" Grid.Row="4" />
-                    <Label LineBreakMode="WordWrap" TextColor="Black" Text="Details" Grid.Column="2" Grid.Row="4" />
-
-                    <Label LineBreakMode="WordWrap" TextColor="Black" Text="5. XAML vs code" Grid.Column="0" Grid.Row="5" />
-                    <Label LineBreakMode="WordWrap" MaxLines="2" TextColor="Black" Text="Learn more about creating your UI in XAML." Grid.Column="1" Grid.Row="5" />
-                    <Label LineBreakMode="WordWrap" TextColor="Black" Text="Details" Grid.Column="2" Grid.Row="5" />
-                </Grid>
-
-            </VerticalStackLayout>
-
+                                <!-- Data -->
+                                <Label Text="{Binding RequestDate}" 
+                                       Grid.Column="0" 
+                                       Padding="5" />
+                                <Label Text="{Binding Bags}" 
+                                       Grid.Column="1" 
+                                       Padding="5" />
+                                <Label Text="{Binding UserNotes}" 
+                                   Grid.Column="2" 
+                                   Padding="5" />   
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

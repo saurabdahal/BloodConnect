@@ -9,8 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Twilio.Rest.Api.V2010.Account;
-using Twilio.Types;
+
 
 namespace BloodConnect.ViewModels
 {
@@ -30,22 +29,23 @@ namespace BloodConnect.ViewModels
 
         public async void SignIn()
         {
-            var message = MessageResource.Create(
-    new PhoneNumber("+7059216266"),
-    from: new PhoneNumber("+7723104281"),
-    body: "Hello World!"
-);
-            Application.Current.MainPage = new NavigationPage(new DonorProfile());
-            //try
-            //{
-            //    var isSignedIn = await FirebaseInitializer.firebaseAuth.SignInWithEmailAndPasswordAsync(Username, Password);
-            //    var phone = await FirebaseInitializer.firebaseClient.Child("Donor").OrderBy("DonorEmail").EqualTo("saurab@gmail.com").OnceSingleAsync<Donor>();
-            //        App.Current.MainPage.DisplayAlert("phone", $" number = {phone.DonorName}", "OK");
+            //var isSignedIn = await FirebaseInitializer.firebaseAuth.SignInWithEmailAndPasswordAsync("saurab@gmail.com", "saurab123");
 
-            //}catch (Exception ex)
-            //{
-            //    App.Current.MainPage.DisplayAlert("Error", $"msg = {ex.Message}", "OK");
-            //}
+            //Preferences.Set("userId", isSignedIn.User.LocalId);
+            //Application.Current.MainPage = new NavigationPage(new DonorProfile());
+
+            try
+            {
+                var isSignedIn = await FirebaseInitializer.firebaseAuth.SignInWithEmailAndPasswordAsync("saurab@gmail.com", "saurab123");
+                Preferences.Set("userId", isSignedIn.User.LocalId);
+                Application.Current.MainPage = new NavigationPage(new DonorProfile());
+
+            }
+            catch (Exception ex)
+            {
+                App.Current.MainPage.DisplayAlert("Error", $"msg = {ex.Message}", "OK");
+            }
+
         }
     }
 }

@@ -110,6 +110,9 @@
 	  <MauiXaml Update="Pages\ReceiverSignUpForm.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\ServiceRequest\DonorRequest.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 	<ItemGroup>

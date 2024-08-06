@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:BloodConnect.ViewModels"
+             x:Class="BloodConnect.Pages.ServiceRequest.DonorRequest"
+             x:DataType="vm:DonorRequestViewModel"
+             >
+
+    <Grid RowDefinitions="0.2*, 0.8*">
+        <Label Text="Create a Donation Request" FontSize="25" TextColor="Red" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+
+        <Grid Grid.Row="1">
+            <RoundRectangle BackgroundColor="Red" Opacity="0.1" CornerRadius="30" Margin="30" />
+
+            <VerticalStackLayout Margin="30" Padding="30">
+                <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">
+                    <Label Text="Specify how many bags do you want to donate" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <Entry Grid.Column="1" VerticalOptions="Center" Placeholder="Please enter you full name" Text="{Binding Bags}"/>
+                </Grid>
+
+                <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">
+                    <Label Text="Email" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <Entry Grid.Column="1" VerticalOptions="Center" Placeholder="Please add some contexts" Text="{Binding Notes}"/>
+                </Grid>
+                
+                <Grid>
+                    <Button Text="Cancel"  Clicked="GoBack" BackgroundColor="Red" HorizontalOptions="End" WidthRequest="100" />
+                    <Button Text="Create a request" Command="{Binding CreateDonationRequestCommand}" BackgroundColor="Red" WidthRequest="200"/>
+                </Grid>
+            </VerticalStackLayout>
+        </Grid>
+    </Grid>
+    
+</ContentPage>
