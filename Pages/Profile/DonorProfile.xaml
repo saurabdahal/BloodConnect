@@ -95,7 +95,7 @@
             </Grid>
             <ListView ItemsSource="{Binding BloodRequests}">
                 <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="model:BloodRequestModel">
+                    <DataTemplate x:DataType="model:BloodRequestWithKey">
                         <ViewCell>
                             <Grid ColumnSpacing="1" RowSpacing="1" Margin="0">
                                 <!-- Define columns -->
@@ -111,15 +111,18 @@
                                 </Grid.RowDefinitions>
 
                                 <!-- Data -->
-                                <Label Text="{Binding RequestDate}" 
+                                <Label Text="{Binding RequestModel.RequestDate}" 
                                        Grid.Column="0" 
                                        Padding="5" />
-                                <Label Text="{Binding Bags}" 
+                                <Label Text="{Binding RequestModel.Bags}" 
                                        Grid.Column="1" 
                                        Padding="5" />
-                                <Label Text="{Binding UserNotes}" 
+                                <Label Text="{Binding RequestModel.UserNotes}" 
                                    Grid.Column="2" 
-                                   Padding="5" />   
+                                   Padding="5" />
+                                <Label Text="{Binding Key}" 
+                                   Grid.Column="2" 
+                                   Padding="5" />
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

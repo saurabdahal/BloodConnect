@@ -26,7 +26,7 @@ namespace BloodConnect.Services
             await FirebaseInitializer.firebaseClient.Child("BloodRequest").PostAsync(bloodRequest);
         }
 
-        public async Task<List<BloodRequestModel>> fetchAllRequests(string userId)
+        public async Task<List<BloodRequestWithKey>> fetchAllRequests(string userId)
         {
             try
             {
@@ -36,16 +36,20 @@ namespace BloodConnect.Services
                     .EqualTo(userId)
                     .OnceAsync<BloodRequestModel>();
 
-                var bloodRequests = new List<BloodRequestModel>();
+                var bloodRequests = new List<BloodRequestWithKey>();
                 foreach (var childSnapshot in dataSnapshot)
                 {
                     var request = childSnapshot.Object;
                     if (request != null) 
                     {
-                        bloodRequests.Add(request);
+                        bloodRequests.Add(new BloodRequestWithKey
+                        {
+                            Key = childSnapshot.Key,
+                            RequestModel = request
+                        });
                     }
+                   
                 }
-
                 return bloodRequests;
             }
             catch (Exception ex)

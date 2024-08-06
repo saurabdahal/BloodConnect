@@ -8,22 +8,34 @@
            >
 
     <Grid RowDefinitions=".3*, .7*">
-        <Image Source="dotnet_bot.png" Aspect="AspectFit" />
-        <Grid BackgroundColor="Yellow" Opacity="0.8"/>
-        <Label Text="WelCome to Blood Connect" HorizontalOptions="Center" VerticalOptions="Center"/>
-        <Grid Grid.Row="1" >
-            <RoundRectangle Margin="-5, 30, -5, 2" CornerRadius="50,30, 0, 0" Fill="White" />
+        <Grid BackgroundColor="#B30000" Opacity="0.2" />
+        <Label HorizontalOptions="End" Margin="30">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Welcome to " FontSize="Header" TextColor="White"/>
+                    <Span Text="Blood" FontSize="Header" TextColor="#B30000"/>
+                    <Span Text="Connect" FontSize="Header" TextColor="#FF6600"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label> 
+        <Label FontSize="Subtitle" TextColor="#FF6666" Text="Connecting Lives, One Donation at a Time" HorizontalOptions="End" Margin="30"
+               VerticalOptions="Center"/>
 
-            <VerticalStackLayout Margin="30, 30, 30, 0" Padding="20, 0, 0, 0" >
-                <Label Text="Welcome User " HorizontalOptions="Center" FontSize="Header" />
-                <Label Text="Login to your account" HorizontalOptions="Center" FontSize="Small" />
+        <Image Source="banner.png" HorizontalOptions="Start" Margin="10" />
+
+        <Grid Grid.Row="1" >
+            <RoundRectangle Margin="-5, 30, -5, 2" CornerRadius="50,30, 0, 0" Fill="#ffbfbf" Opacity="0.1" />
+
+            <VerticalStackLayout Margin="30, 50, 30, 0" Padding="20, 0, 0, 0" >
+                <Label TextColor="#ff8080" Text="Welcome User " HorizontalOptions="Center" FontSize="Header" />
+                <Label TextColor="#ffb3b3"  Text="Login to your account" HorizontalOptions="Center" FontSize="Small" />
 
 
 
 
                 <Grid ColumnDefinitions="0.2*, 0.7*">
                     <RoundRectangle Margin="30" CornerRadius="10" 
-                        HeightRequest="50" BackgroundColor="Red" Opacity="0.2" WidthRequest="50"
+                        HeightRequest="50" BackgroundColor="white" Opacity="0.1" WidthRequest="50"
                         HorizontalOptions="Center" VerticalOptions="Center" 
 />
                     <Image HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="40" HeightRequest="40">
@@ -32,18 +44,18 @@
                                 FontFamily="fas"
                                 Glyph="&#xf007;" 
                                 Size="40"
-                                Color="red"
+                                Color="#FFA07A"
                                 >
                             </FontImageSource>
                         </Image.Source>
                     </Image>
 
-                    <Entry Grid.Column="1" TextColor="Black" Placeholder="enter email" Text="{Binding Username}" VerticalOptions="Center"/>
+                    <Entry Grid.Column="1" TextColor="CadetBlue" Placeholder="enter email" Text="{Binding Username}" VerticalOptions="Center"/>
                 </Grid>
 
                 <Grid ColumnDefinitions="0.2*, 0.7*">
                     <RoundRectangle Margin="30" CornerRadius="10" 
-                        HeightRequest="50" BackgroundColor="Red" Opacity="0.2" WidthRequest="50"
+                        HeightRequest="50" BackgroundColor="AliceBlue" Opacity="0.1" WidthRequest="50"
                         HorizontalOptions="Center" VerticalOptions="Center" 
 />
                     <Image HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="40" HeightRequest="40">
@@ -52,21 +64,21 @@
                                 FontFamily="fas"
                                 Glyph="&#xf023;" 
                                 Size="40"
-                                Color="red"
+                                Color="#FFA07A"
                                 >
                             </FontImageSource>
                         </Image.Source>
                     </Image>
 
-                    <Entry Grid.Column="1" TextColor="Black" Placeholder="enter password" Text="{Binding Password}" VerticalOptions="Center"/>
+                    <Entry Grid.Column="1" TextColor="CadetBlue" Placeholder="enter password" Text="{Binding Password}" VerticalOptions="Center"/>
                 </Grid>
 
                 <!--<local:InputView Glyph="&#xf023;" PlaceHolder = "Enter Password" Text="{Binding Password}" />-->
 
 
-                <Button BackgroundColor="Red" Text="Login" Margin="20" HorizontalOptions="End" Command="{Binding SignInCommand}" WidthRequest="200"/>
-                <Label Text="Forgot password ?" Margin="10" HorizontalOptions="Center" TextColor="Red"/>
-                <Button BackgroundColor="Red" Text="Not a member ? Sign up to save lives."  Margin="20" HorizontalOptions="Center" Clicked="DefineRole" />
+                <Button BackgroundColor="#ffa366" Text="Login" Margin="20" HorizontalOptions="End" Command="{Binding SignInCommand}" WidthRequest="200"/>
+                <Label Text="Forgot password ?" Margin="10" HorizontalOptions="Center" TextDecorations="Underline" TextColor="CornflowerBlue"/>
+                <Button BackgroundColor="#ffa366" Text="Not a member ? Sign up to save lives."  Margin="20" HorizontalOptions="Center" Clicked="DefineRole" />
 
             </VerticalStackLayout>
         </Grid>

@@ -25,7 +25,7 @@ namespace BloodConnect.ViewModels
 
         
         [ObservableProperty]
-        private List<BloodRequestModel> bloodRequests = new List<BloodRequestModel>();
+        private List<BloodRequestWithKey> bloodRequests = new List<BloodRequestWithKey>();
 
         private string userId = Preferences.Get("userId", string.Empty);
 
