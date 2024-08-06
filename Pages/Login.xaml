@@ -8,20 +8,7 @@
            >
 
     <Grid RowDefinitions=".3*, .7*">
-        <Grid BackgroundColor="#B30000" Opacity="0.2" />
-        <Label HorizontalOptions="End" Margin="30">
-            <Label.FormattedText>
-                <FormattedString>
-                    <Span Text="Welcome to " FontSize="Header" TextColor="White"/>
-                    <Span Text="Blood" FontSize="Header" TextColor="#B30000"/>
-                    <Span Text="Connect" FontSize="Header" TextColor="#FF6600"/>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label> 
-        <Label FontSize="Subtitle" TextColor="#FF6666" Text="Connecting Lives, One Donation at a Time" HorizontalOptions="End" Margin="30"
-               VerticalOptions="Center"/>
-
-        <Image Source="banner.png" HorizontalOptions="Start" Margin="10" />
+        <local:BannerView />
 
         <Grid Grid.Row="1" >
             <RoundRectangle Margin="-5, 30, -5, 2" CornerRadius="50,30, 0, 0" Fill="#ffbfbf" Opacity="0.1" />

@@ -6,17 +6,17 @@
              >
 
     <Grid RowDefinitions="0.3*, 0.7*">
-        <Image Source="dotnet_bot.png" Aspect="AspectFit" />
-        <Grid BackgroundColor="Yellow" Opacity="0.8"/>
-        <Label Text="WelCome to Blood Connect" HorizontalOptions="Center" VerticalOptions="Center"/>
+        <local:BannerView />
 
         <Grid Grid.Row="1" >
-            <RoundRectangle Margin="-5, 30, -5, 2" CornerRadius="50,30, 0, 0" Fill="White" />
+            <RoundRectangle Margin="-5, 30, -5, 2" CornerRadius="50,30, 0, 0" Opacity="0.1" Fill="#ffbfbf" />
 
             <VerticalStackLayout Margin="30, 30, 30, 0" Padding="20, 0, 0, 0" >
-                <Picker x:Name="rolePicker" 
+                <Picker x:Name="rolePicker" TextColor="Black"
                         Title="Welcome to the role menu"
-                        SelectedIndexChanged="OnSelectedIndexChanged"
+                        Margin="0,30"
+                        HeightRequest="80"
+                        SelectedIndexChanged="OnSelectedIndexChanged" BackgroundColor="#00b300"
                         SelectedIndex="0"
                 >
                     <Picker.ItemsSource>
@@ -28,7 +28,7 @@
                         </x:Array>
                     </Picker.ItemsSource>
                 </Picker>
-                <Button Text="Create role" BackgroundColor="Red"  Margin="30" Clicked="SelectPage"/>
+                <Button Text="Create role" BackgroundColor="#ffa366"  Margin="30" Clicked="SelectPage"/>
                 <Grid Margin="20" VerticalOptions="Center">
 
                     <Label x:Name="selectedRoleDescription" 
@@ -37,7 +37,7 @@
                                HeightRequest="80"
                                Padding="30"
                             FontSize="20" 
-                            TextColor="Black"/> 
+                            TextColor="#FF6600"/> 
                 </Grid>
             </VerticalStackLayout>
 

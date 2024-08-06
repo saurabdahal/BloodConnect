@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BloodConnect.Components.BannerView">
+
+    <Grid>
+        <!-- Background Grid with opacity -->
+        <Grid BackgroundColor="#B30000" Opacity="0.2" />
+
+        <!-- Welcome Label -->
+        <Label HorizontalOptions="End" Margin="30">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Welcome to " FontSize="Header" TextColor="White"/>
+                    <Span Text="Blood" FontSize="Header" TextColor="#B30000"/>
+                    <Span Text="Connect" FontSize="Header" TextColor="#FF6600"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <!-- Motto Label -->
+        <Label FontSize="Subtitle" TextColor="#FF6666" Text="Connecting Lives, One Donation at a Time" HorizontalOptions="End" Margin="30"
+           VerticalOptions="Center"/>
+
+        <!-- Banner Image -->
+        <Image Source="banner.png" HorizontalOptions="Start" Margin="10" />
+    </Grid>
+</ContentView>
