@@ -20,15 +20,15 @@ namespace BloodConnect.Services
                 {
                     MediatorId = mediatorDictionary["mediatorId"],
 
-                    MediatorName = mediatorDictionary["fullname"],
+                    MediatorName = mediatorDictionary["fullName"],
 
-                    MediatorType = mediatorDictionary["type"],
+                    MediatorType = mediatorDictionary["mediatorType"],
                   
-                    MediatorEmail = mediatorDictionary["mediatoremail"],
+                    MediatorEmail = mediatorDictionary["mediatorEmail"],
 
-                    MediatorPhone = mediatorDictionary["donorphone"],
+                    MediatorPhone = mediatorDictionary["mediatorPhone"],
 
-                    MediatorContactPerson = mediatorDictionary["emergencycontact"],
+                    MediatorContactPerson = mediatorDictionary["mediatorContactPerson"],
 
                     MediatorAddress = mediatorDictionary["address"],
                 };

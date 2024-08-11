@@ -21,15 +21,19 @@ namespace BloodConnect.Services
                 Donor donor = new Donor
                 {
                     DonorId = donorDictionary["donorId"],
+
                     DonorName = donorDictionary["fullname"],
 
                     DonorAge = int.Parse(donorDictionary["age"]),
 
-
                     DonorAddress = donorDictionary["address"],
+
                     DonorBloodGroup = donorDictionary["bloodgroup"],
+
                     DonorEmail = donorDictionary["donoremail"],
+
                     DonorEmergencyContact = donorDictionary["emergencycontact"],
+
                     DonorPhone = donorDictionary["donorphone"]
                 };
                 await firebaseClient.Child("Donor").PostAsync(donor);
