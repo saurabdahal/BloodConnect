@@ -35,17 +35,17 @@
                     <Entry Grid.Column="1" Placeholder="Please enter your address including your postal code" VerticalOptions="Center" Text="{Binding Address}"/>
                 </Grid>
                 <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">
-                    <Label Text="Contact number" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <Label Text="Contact Number" VerticalOptions="Center" HorizontalOptions="Center"/>
                     <Entry Grid.Column="1" Placeholder="Please enter your phone number" VerticalOptions="Center" Text="{Binding ContactNumber}"/>
                 </Grid>
 
                 <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">
-                    <Label Text="Emergency Contact number" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <Label Text="Emergency Contact Number" VerticalOptions="Center" HorizontalOptions="Center"/>
                     <Entry Grid.Column="1" Placeholder="Please enter your emergency contact number" VerticalOptions="Center" Text="{Binding EmergencyContactNumber}"/>
                 </Grid>
 
                 <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">
-                    <Label Text="Blood group" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <Label Text="Blood Group" VerticalOptions="Center" HorizontalOptions="Center"/>
                     <Entry Grid.Column="1" Placeholder="Please specify you blood group" VerticalOptions="Center" Text="{Binding BloodGroup}"/>
                 </Grid>
 

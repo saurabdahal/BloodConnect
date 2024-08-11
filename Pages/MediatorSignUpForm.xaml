@@ -12,35 +12,39 @@
             <VerticalStackLayout Margin="30" Padding="30">
                 <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">
                     <Label Text="Name" VerticalOptions="Center" HorizontalOptions="Center"/>
-                    <Entry Grid.Column="1" VerticalOptions="Center" Placeholder="Please enter you full name"/>
+                    <Entry Grid.Column="1" VerticalOptions="Center" Placeholder="Please enter you full name or company name" Text="{Binding Fullname}"/>
                 </Grid>
 
                 <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">
-                    <Label Text="Type" VerticalOptions="Center" HorizontalOptions="Center"/>
-                    <Entry Grid.Column="1" VerticalOptions="Center" Placeholder="Please enter your type"/>
+                    <Label Text="Mediator Type" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <Entry Grid.Column="1" VerticalOptions="Center" Placeholder="Please enter your type - Person or Blood Bank" Text="{Binding mediatorType}"/>
                 </Grid>
                 <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">
                     <Label Text="Email or Website" VerticalOptions="Center" HorizontalOptions="Center"/>
-                    <Entry Grid.Column="1" Placeholder="Please enter your email or website." VerticalOptions="Center"/>
+                    <Entry Grid.Column="1" Placeholder="Please enter your email or website." VerticalOptions="Center" Text="{Binding Email}"/>
                 </Grid>
                 <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">
-                    <Label Text="Contact number" VerticalOptions="Center" HorizontalOptions="Center"/>
-                    <Entry Grid.Column="1" Placeholder="Please enter your phone number" VerticalOptions="Center"/>
+                    <Label Text="Password" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <Entry Grid.Column="1" VerticalOptions="Center" Placeholder="Please enter your password" Text="{Binding Password}"/>
+                </Grid>
+                <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">
+                    <Label Text="Contact Number" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <Entry Grid.Column="1" Placeholder="Please enter your phone number" VerticalOptions="Center" Text="{Binding ContactNumber}"/>
                 </Grid>
 
                 <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">
                     <Label Text="Contact Person" VerticalOptions="Center" HorizontalOptions="Center"/>
-                    <Entry Grid.Column="1" Placeholder="Please provide your contact person name" VerticalOptions="Center"/>
+                    <Entry Grid.Column="1" Placeholder="Please provide your contact person name" VerticalOptions="Center" Text="{Binding ContactPerson}"/>
                 </Grid>
 
                 <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">
                     <Label Text="Address" VerticalOptions="Center" HorizontalOptions="Center"/>
-                    <Entry Grid.Column="1" Placeholder="Please provide your address" VerticalOptions="Center"/>
+                    <Entry Grid.Column="1" Placeholder="Please provide your address" VerticalOptions="Center" Text="{Binding Address}"/>
                 </Grid>
 
                 <Grid>
                     <Button Text="Cancel"  Clicked="BackToLoginPage" BackgroundColor="Red" HorizontalOptions="End" WidthRequest="100" />
-                    <Button Text="Create an account" BackgroundColor="Red" WidthRequest="200"/>
+                    <Button Text="Create an account" Command="{Binding CreateMediatorAccountCommand}" BackgroundColor="Red" WidthRequest="200"/>
                 </Grid>
             </VerticalStackLayout>
         </Grid>
