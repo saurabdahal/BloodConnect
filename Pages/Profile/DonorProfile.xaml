@@ -11,31 +11,28 @@
     <ScrollView Padding="20">
         <VerticalStackLayout Spacing="20">
 
-            <!-- Profile Card -->
             <Frame 
                 CornerRadius="10" 
                 HasShadow="True" 
                 Padding="10" 
-                BackgroundColor="White">
+                BackgroundColor="#ff6666">
 
                 <Grid>
-                    <!-- Define columns: one for the image and one for the details -->
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="150" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <!-- Profile Picture -->
                     <Image 
                         Source="dotnet_bot.png" 
                         Aspect="AspectFit" 
                         Grid.Column="0" 
                         HeightRequest="150" 
                         WidthRequest="150" 
+                        BackgroundColor="#ffbfbf"
                         Margin="0,0,10,0" />
 
-                    <!-- Details -->
-                    <VerticalStackLayout Grid.Column="1" Spacing="10" Padding="20" BackgroundColor="OrangeRed">
+                    <VerticalStackLayout Grid.Column="1" Spacing="10" Padding="20">
                         <Label 
                             TextColor="Black"
                             Text="{Binding Fullname}" 
@@ -56,73 +53,75 @@
                 </Grid>
             </Frame>
 
-            <!-- Action Button -->
             <Button 
                 Text="Create donation request" 
-                BackgroundColor="OrangeRed" 
-                TextColor="White" 
+                BackgroundColor="#ffa366" 
+                TextColor="Black" 
                 CornerRadius="10" 
                 HeightRequest="50" 
                 Clicked="NavigateToDonationRequestPage"
                  />
 
 
-                <Label Text="My Blood Requests"
+                <Label Text="My Donation Requests"
                    FontSize="24"
                    FontAttributes="Bold"
                    HorizontalOptions="Center" />
-            <Grid ColumnSpacing="1" RowSpacing="1" Margin="0">
-                <!-- Define columns -->
+            <Grid ColumnSpacing="1" RowSpacing="1" Margin="0" BackgroundColor="#ffbfbf">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <!-- Define rows -->
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <Label Text="Date" FontSize="Medium"
+                <Label Text="Date" FontSize="Medium" TextColor="Black" HorizontalOptions="Center"
                            Grid.Column="0" 
                            Padding="5" />
-                <Label Text="Donation Bags"  FontSize="Medium"
+                <Label Text="Donation Bags"  FontSize="Medium" TextColor="Black" HorizontalOptions="Center"
                        Grid.Column="1" 
-                       Padding="5" />
-                <Label Text="Notes" FontSize="Medium"
+                       Padding="5" /> 
+                <Label Text="Notes" FontSize="Medium" TextColor="Black" HorizontalOptions="Center"
                        Grid.Column="2" 
-                       Padding="5" />   
+                       Padding="5" />
+                <Label Text="Action" FontSize="Medium" TextColor="Black" HorizontalOptions="Center"
+                       Grid.Column="3" 
+                       Padding="5" />
             </Grid>
             <ListView ItemsSource="{Binding BloodRequests}">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="model:BloodRequestWithKey">
                         <ViewCell>
                             <Grid ColumnSpacing="1" RowSpacing="1" Margin="0">
-                                <!-- Define columns -->
                                 <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
 
-                                <!-- Define rows -->
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
 
-                                <!-- Data -->
-                                <Label Text="{Binding RequestModel.RequestDate}" 
-                                       Grid.Column="0" 
+                                <Label Text="{Binding RequestModel.RequestDate}" HorizontalOptions="Center"
+                                       Grid.Column="0" VerticalOptions="Center"
+                                       Padding="15" />
+                                <Label Text="{Binding RequestModel.Bags}" HorizontalOptions="Center"
+                                       Grid.Column="1" VerticalOptions="Center"
                                        Padding="5" />
-                                <Label Text="{Binding RequestModel.Bags}" 
-                                       Grid.Column="1" 
-                                       Padding="5" />
-                                <Label Text="{Binding RequestModel.UserNotes}" 
-                                   Grid.Column="2" 
+                                <Label Text="{Binding RequestModel.UserNotes}" HorizontalOptions="Center"
+                                   Grid.Column="2" VerticalOptions="Center"
                                    Padding="5" />
-                                <Label Text="{Binding Key}" 
-                                   Grid.Column="2" 
-                                   Padding="5" />
+                                <Button Text="Delete" Grid.Column="3" Background="#ffbfbf" WidthRequest="120"
+                                        HeightRequest="15">
+                                    <Button.ImageSource>
+                                        <FontImageSource FontFamily="fas" Glyph="&#xf1f8;" Color="#00b300" />
+                                    </Button.ImageSource>
+                                </Button>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

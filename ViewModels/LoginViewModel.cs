@@ -36,7 +36,7 @@ namespace BloodConnect.ViewModels
 
             try
             {
-                var isSignedIn = await FirebaseInitializer.firebaseAuth.SignInWithEmailAndPasswordAsync("saurab@gmail.com", "saurab123");
+                var isSignedIn = await FirebaseInitializer.firebaseAuth.SignInWithEmailAndPasswordAsync(username, password);
                 Preferences.Set("userId", isSignedIn.User.LocalId);
                 Application.Current.MainPage = new NavigationPage(new DonorProfile());
 

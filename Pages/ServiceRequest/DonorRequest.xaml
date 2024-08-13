@@ -4,13 +4,14 @@
              xmlns:vm="clr-namespace:BloodConnect.ViewModels"
              x:Class="BloodConnect.Pages.ServiceRequest.DonorRequest"
              x:DataType="vm:DonorRequestViewModel"
+             xmlns:local="clr-namespace:BloodConnect.Components"
              >
 
     <Grid RowDefinitions="0.2*, 0.8*">
-        <Label Text="Create a Donation Request" FontSize="25" TextColor="Red" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        <Label Text="Create a Donation Request" FontSize="25" TextColor="#ff6666" HorizontalOptions="Center" VerticalOptions="Center"></Label>
 
         <Grid Grid.Row="1">
-            <RoundRectangle BackgroundColor="Red" Opacity="0.1" CornerRadius="30" Margin="30" />
+            <RoundRectangle BackgroundColor="#ffbfbf" Opacity="0.1" CornerRadius="30" Margin="30" />
 
             <VerticalStackLayout Margin="30" Padding="30">
                 <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">
@@ -24,8 +25,8 @@
                 </Grid>
                 
                 <Grid>
-                    <Button Text="Cancel"  Clicked="GoBack" BackgroundColor="Red" HorizontalOptions="End" WidthRequest="100" />
-                    <Button Text="Create a request" Command="{Binding CreateDonationRequestCommand}" BackgroundColor="Red" WidthRequest="200"/>
+                    <Button Text="Cancel"  Clicked="GoBack" BackgroundColor="#ffa366" HorizontalOptions="End" WidthRequest="100" />
+                    <Button Text="Create a request" Command="{Binding CreateDonationRequestCommand}" BackgroundColor="#00ff00" WidthRequest="200"/>
                 </Grid>
             </VerticalStackLayout>
         </Grid>
