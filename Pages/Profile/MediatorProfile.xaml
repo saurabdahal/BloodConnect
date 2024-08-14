@@ -2,7 +2,10 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BloodConnect.Pages.Profile.MediatorProfile"
-             Title="MediatorProfile">
+             xmlns:vm="clr-namespace:BloodConnect.ViewModels"
+             x:DataType="vm:MediatorProfileViewModel"
+             xmlns:model ="clr-namespace:BloodConnect.Models"
+             >
     <ScrollView Padding="20">
         <VerticalStackLayout Spacing="20">
 
@@ -30,23 +33,85 @@
                     <VerticalStackLayout Grid.Column="1" Spacing="10" Padding="20">
                         <Label 
                         TextColor="Black"
-                        Text="" 
+                        Text="{Binding Fullname}" 
                         FontSize="24" 
                         FontAttributes="Bold" 
                         HorizontalOptions="Start" />
                         <Label 
                         TextColor="Black"
-                        Text="" 
+                        Text="{Binding Address}" 
                         FontSize="18" 
                         HorizontalOptions="Start" />
                         <Label 
                         TextColor="Black"
-                        Text="" 
+                        Text="{Binding Phone}" 
                         FontSize="18" 
                         HorizontalOptions="Start" />
                     </VerticalStackLayout>
                 </Grid>
             </Frame>
+
+
+            <Grid ColumnSpacing="1" RowSpacing="1" Margin="0" BackgroundColor="#ffbfbf">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Text="Date" FontSize="Medium" TextColor="Black" HorizontalOptions="Center"
+               Grid.Column="0" 
+               Padding="5" />
+                <Label Text="Donation Bags"  FontSize="Medium" TextColor="Black" HorizontalOptions="Center"
+           Grid.Column="1" 
+           Padding="5" />
+                <Label Text="Notes" FontSize="Medium" TextColor="Black" HorizontalOptions="Center"
+           Grid.Column="2" 
+           Padding="5" />
+                <Label Text="Action" FontSize="Medium" TextColor="Black" HorizontalOptions="Center"
+           Grid.Column="3" 
+           Padding="5" />
+            </Grid>
+            <ListView ItemsSource="{Binding BloodRequests}">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="model:BloodRequestWithKey">
+                        <ViewCell>
+                            <Grid ColumnSpacing="1" RowSpacing="1" Margin="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Label Text="{Binding RequestModel.RequestDate}" HorizontalOptions="Center"
+                           Grid.Column="0" VerticalOptions="Center"
+                           Padding="15" />
+                                <Label Text="{Binding RequestModel.Bags}" HorizontalOptions="Center"
+                           Grid.Column="1" VerticalOptions="Center"
+                           Padding="5" />
+                                <Label Text="{Binding RequestModel.UserNotes}" HorizontalOptions="Center"
+                       Grid.Column="2" VerticalOptions="Center"
+                       Padding="5" />
+                                <Button Text="Delete" Grid.Column="3" Background="#ffbfbf" WidthRequest="120"
+                            HeightRequest="15">
+                                    <Button.ImageSource>
+                                        <FontImageSource FontFamily="fas" Glyph="&#xf1f8;" Color="#00b300" />
+                                    </Button.ImageSource>
+                                </Button>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

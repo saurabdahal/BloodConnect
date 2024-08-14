@@ -49,7 +49,7 @@ namespace BloodConnect.ViewModels
         {
             // Replace with actual userId retrieval logic
             string userId = Preferences.Get("userId", string.Empty);
-            BloodRequests = await new DonorRequestService().fetchAllRequests(userId);
+            BloodRequests = await new BloodRequestService().fetchAllRequestsByUser(userId);
             if (BloodRequests == null)
             {
                 await Application.Current.MainPage.DisplayAlert("OK", "damn", "ok");
