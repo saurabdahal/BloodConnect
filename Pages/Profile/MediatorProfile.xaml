@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BloodConnect.Pages.Profile.MediatorProfile"
+             Title="MediatorProfile">
+    <ScrollView Padding="20">
+        <VerticalStackLayout Spacing="20">
+
+            <Frame 
+            CornerRadius="10" 
+            HasShadow="True" 
+            Padding="10" 
+            BackgroundColor="#ff6666">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image 
+                    Source="dotnet_bot.png" 
+                    Aspect="AspectFit" 
+                    Grid.Column="0" 
+                    HeightRequest="150" 
+                    WidthRequest="150" 
+                    BackgroundColor="#ffbfbf"
+                    Margin="0,0,10,0" />
+
+                    <VerticalStackLayout Grid.Column="1" Spacing="10" Padding="20">
+                        <Label 
+                        TextColor="Black"
+                        Text="" 
+                        FontSize="24" 
+                        FontAttributes="Bold" 
+                        HorizontalOptions="Start" />
+                        <Label 
+                        TextColor="Black"
+                        Text="" 
+                        FontSize="18" 
+                        HorizontalOptions="Start" />
+                        <Label 
+                        TextColor="Black"
+                        Text="" 
+                        FontSize="18" 
+                        HorizontalOptions="Start" />
+                    </VerticalStackLayout>
+                </Grid>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

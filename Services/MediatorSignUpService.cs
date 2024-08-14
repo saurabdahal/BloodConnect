@@ -22,13 +22,13 @@ namespace BloodConnect.Services
 
                     MediatorName = mediatorDictionary["fullname"],
 
-                    MediatorType = mediatorDictionary["mediatorType"],
+                    MediatorType = mediatorDictionary["mediatortype"],
                   
-                    MediatorEmail = mediatorDictionary["mediatorEmail"],
+                    MediatorEmail = mediatorDictionary["mediatoremail"],
 
-                    MediatorPhone = mediatorDictionary["mediatorPhone"],
+                    MediatorPhone = mediatorDictionary["mediatorphone"],
 
-                    MediatorContactPerson = mediatorDictionary["mediatorContactPerson"],
+                    MediatorContactPerson = mediatorDictionary["mediatorcontactperson"],
 
                     MediatorAddress = mediatorDictionary["address"],
                 };
