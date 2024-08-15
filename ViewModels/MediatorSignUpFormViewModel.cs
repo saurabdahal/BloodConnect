@@ -1,4 +1,5 @@
-﻿using BloodConnect.Models;
+﻿using BloodConnect.Helpers;
+using BloodConnect.Models;
 using BloodConnect.Pages;
 using BloodConnect.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -7,6 +8,7 @@ using Firebase.Auth;
 using Firebase.Database;
 using Firebase.Database.Query;
 using Microsoft.Maui.Controls;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 
 namespace BloodConnect.ViewModels
@@ -23,8 +25,7 @@ namespace BloodConnect.ViewModels
         private string password;
 
         [ObservableProperty]
-        private string mediatorType;
-
+        private ObservableCollection<string> mediatorType;
 
         [ObservableProperty]
         private string contactNumber;
@@ -35,6 +36,9 @@ namespace BloodConnect.ViewModels
         [ObservableProperty]
         private string address;
 
+        [ObservableProperty]
+        private string selectedMediatorType;
+
 
         private readonly FirebaseAuthProvider firebaseAuth;
         private readonly FirebaseClient firebaseClient;
@@ -43,11 +47,15 @@ namespace BloodConnect.ViewModels
 
         public MediatorSignupFormViewModel()
         {
-            firebaseAuth = new FirebaseAuthProvider(new FirebaseConfig("AIzaSyCiS3d - wBcf7KpGHgsxDo87pHMilLeQKD8"));
-            firebaseClient = new FirebaseClient("https://bloodconnect-7c36f-default-rtdb.firebaseio.com/");
-
             CreateMediatorAccountCommand = new Command(CreateMediatorAccount);
             mediatorSignUpService = new MediatorSignUpService();
+
+            MediatorType = new ObservableCollection<string>
+                {
+                    "Hospital",
+                    "RedCross",
+                    "Private Agency"
+                };
         }
 
         private async void CreateMediatorAccount()
@@ -57,24 +65,17 @@ namespace BloodConnect.ViewModels
             try
             {
 
-                var authId = await firebaseAuth.CreateUserWithEmailAndPasswordAsync(Email, Password);
-
-                //var isSignedIn = await firebaseAuth.SignInWithEmailAndPasswordAsync("saurab@gmail.com", "!Dahal123");
+                var authId = await FirebaseInitializer.firebaseAuth.CreateUserWithEmailAndPasswordAsync(Email, Password);
                 if (authId.FirebaseToken != null)
 
                 {
-                    // var authResult = await firebaseAuth.CreateUserWithEmailAndPasswordAsync(Email, Password);
-
-
-                    // User created successfully, proceed with saving donor data
-                    // Creating a HashMap with keys of type string and values of type int
                     Dictionary<string, string> mediator = new Dictionary<string, string>();
 
                     mediator.Add("mediatorId", authId.User.LocalId);
 
                     mediator.Add("fullname", FullName);
 
-                    mediator.Add("mediatortype", MediatorType);
+                    mediator.Add("mediatortype", selectedMediatorType);
                
                     mediator.Add("mediatoremail", Email);
 
@@ -86,6 +87,12 @@ namespace BloodConnect.ViewModels
 
 
                     mediatorSignUpService.SignUp(mediator, firebaseClient);
+
+                    Dictionary<string, string> userRole = new Dictionary<string, string>();
+                    userRole.Add("userid", authId.User.LocalId);
+                    userRole.Add("roletype", "mediator");
+                    new UserRoleService().CreateUserRole(userRole);
+
                     Application.Current.MainPage = new NavigationPage(new Login());
                 }
 

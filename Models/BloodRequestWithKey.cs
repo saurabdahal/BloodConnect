@@ -10,5 +10,7 @@ namespace BloodConnect.Models
     {
         public string Key { get; set; }    
         public BloodRequestModel RequestModel { get; set; }
+
+        public Donor Donor { get; set; }
     }
 }

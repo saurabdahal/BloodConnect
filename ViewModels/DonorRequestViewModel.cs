@@ -1,5 +1,6 @@
 ﻿using BloodConnect.Helpers;
 using BloodConnect.Models;
+using BloodConnect.Pages.Profile;
 using BloodConnect.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System;
@@ -40,7 +41,8 @@ namespace BloodConnect.ViewModels
             new DonorRequestService().CreateRequest(data);
 
             TwilioSendMessage.SendMessage("Thank you for showing interest to save someone's life. You good deed will not go unnoticed.");
-            App.Current.MainPage.DisplayAlert("Way To Go", "Thank you for your service. We will get backk to you as soon as possible", "OK");
+            await Application.Current.MainPage.DisplayAlert("Way To Go", "Thank you for your service. We will get backk to you as soon as possible", "OK");
+            Application.Current.MainPage = new NavigationPage(new DonorProfile());
         }
 
         

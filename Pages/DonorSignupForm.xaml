@@ -28,7 +28,7 @@
                 </Grid>
                 <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">
                     <Label Text="Password" VerticalOptions="Center" HorizontalOptions="Center"/>
-                    <Entry Grid.Column="1" TextColor="CadetBlue" VerticalOptions="Center" Placeholder="Please enter your password" Text="{Binding Password}"/>
+                    <Entry Grid.Column="1" TextColor="CadetBlue" VerticalOptions="Center" IsPassword="True" Placeholder="Please enter your password" Text="{Binding Password}"/>
                 </Grid>
 
                 <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">

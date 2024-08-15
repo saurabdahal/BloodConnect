@@ -5,6 +5,7 @@
              xmlns:vm="clr-namespace:BloodConnect.ViewModels"
              x:DataType="vm:DonorProfileViewModel"
              xmlns:model ="clr-namespace:BloodConnect.Models"
+             x:Name="DonorProfileViewModel"
              >
 
 
@@ -49,6 +50,14 @@
                             Text="{Binding Address}" 
                             FontSize="18" 
                             HorizontalOptions="Start" />
+
+                        <Button Text="Logout" 
+                            Command="{Binding logoutCommand}" 
+                            BackgroundColor="#ffa366" 
+                            TextColor="Black" 
+                            CornerRadius="10" 
+                            HeightRequest="50" 
+                                />
                     </VerticalStackLayout>
                 </Grid>
             </Frame>
@@ -73,6 +82,7 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
                 <Grid.RowDefinitions>
@@ -87,8 +97,11 @@
                 <Label Text="Notes" FontSize="Medium" TextColor="Black" HorizontalOptions="Center"
                        Grid.Column="2" 
                        Padding="5" />
-                <Label Text="Action" FontSize="Medium" TextColor="Black" HorizontalOptions="Center"
+                <Label Text="Status" FontSize="Medium" TextColor="Black" HorizontalOptions="Center"
                        Grid.Column="3" 
+                       Padding="5" />   
+                <Label Text="Action" FontSize="Medium" TextColor="Black" HorizontalOptions="Center"
+                       Grid.Column="4" 
                        Padding="5" />
             </Grid>
             <ListView ItemsSource="{Binding BloodRequests}">
@@ -97,6 +110,7 @@
                         <ViewCell>
                             <Grid ColumnSpacing="1" RowSpacing="1" Margin="0">
                                 <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />
@@ -116,7 +130,21 @@
                                 <Label Text="{Binding RequestModel.UserNotes}" HorizontalOptions="Center"
                                    Grid.Column="2" VerticalOptions="Center"
                                    Padding="5" />
-                                <Button Text="Delete" Grid.Column="3" Background="#ffbfbf" WidthRequest="120"
+                                <Label HorizontalOptions="Center"
+                                   Grid.Column="3" VerticalOptions="Center"
+                                   Padding="5"> 
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label" Binding="{Binding RequestModel.Completed}" Value="true">
+                                            <Setter Property="Text" Value="Approved" />
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Label" Binding="{Binding RequestModel.Completed}" Value="false">
+                                            <Setter Property="Text" Value="Pending" />
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                                <Button Text="Delete" Grid.Column="4" Background="#ffbfbf" WidthRequest="120"
+                                        Command="{Binding BindingContext.deleteRequestCommand, Source={x:Reference Name=DonorProfileViewModel}}"
+                                        CommandParameter="{Binding Key}"
                                         HeightRequest="15">
                                     <Button.ImageSource>
                                         <FontImageSource FontFamily="fas" Glyph="&#xf1f8;" Color="#00b300" />

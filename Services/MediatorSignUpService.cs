@@ -7,6 +7,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Firebase.Database.Query;
+using BloodConnect.Helpers;
 
 namespace BloodConnect.Services
 {
@@ -32,7 +33,7 @@ namespace BloodConnect.Services
 
                     MediatorAddress = mediatorDictionary["address"],
                 };
-                await firebaseClient.Child("Mediator").PostAsync(mediator);
+                await FirebaseInitializer.firebaseClient.Child("Mediator").PostAsync(mediator);
                
             
         

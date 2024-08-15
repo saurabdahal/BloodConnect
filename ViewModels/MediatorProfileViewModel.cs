@@ -1,4 +1,5 @@
 ﻿using BloodConnect.Models;
+using BloodConnect.Pages;
 using BloodConnect.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System;
@@ -24,10 +25,20 @@ namespace BloodConnect.ViewModels
 
         private string userId = Preferences.Get("userId", string.Empty);
 
+        public Command logoutCommand { get; }
+        public Command approveRequestCommand { get; }
+
+
+
         public MediatorProfileViewModel()
         {
             FetchMediatorProfile();
             LoadBloodRequests();
+
+            logoutCommand = new Command(LogoutDonor);
+            approveRequestCommand = new Command<string>(async (key) => await ApproveRequest(key));
+
+
         }
 
         public async void FetchMediatorProfile() {
@@ -44,6 +55,26 @@ namespace BloodConnect.ViewModels
             if (BloodRequests == null)
             {
                 await Application.Current.MainPage.DisplayAlert("OK", "damn", "ok");
+            }
+        }
+
+        private void LogoutDonor()
+        {
+            Preferences.Remove("userId");
+            Application.Current.MainPage = new NavigationPage(new Login());
+        }
+
+        private async Task ApproveRequest(string key)
+        {
+            bool response = await BloodRequestService.ApproveRequestAsync(key);
+            if(response)
+            {
+                await Application.Current.MainPage.DisplayAlert("Successful", "Request approved", "OK");
+                BloodRequests = await new BloodRequestService().fetchAllRequests();
+            }
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert("Successful", "Error approving request", "OK");
             }
         }
 

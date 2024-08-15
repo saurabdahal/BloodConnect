@@ -1,4 +1,5 @@
 ﻿using BloodConnect.Models;
+using BloodConnect.Pages;
 using BloodConnect.Pages.ServiceRequest;
 using BloodConnect.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -29,9 +30,17 @@ namespace BloodConnect.ViewModels
 
         private string userId = Preferences.Get("userId", string.Empty);
 
+        public Command logoutCommand { get; }
+
+        public Command deleteRequestCommand { get; }
+
+
         public DonorProfileViewModel() {
             fetchDonorProfile();
             LoadBloodRequests();
+
+            logoutCommand = new Command(LogoutDonor);
+            deleteRequestCommand = new Command<string>(async (key) => await DeleteRequest(key));
         }
 
 
@@ -47,7 +56,6 @@ namespace BloodConnect.ViewModels
 
         private async void LoadBloodRequests()
         {
-            // Replace with actual userId retrieval logic
             string userId = Preferences.Get("userId", string.Empty);
             BloodRequests = await new BloodRequestService().fetchAllRequestsByUser(userId);
             if (BloodRequests == null)
@@ -57,5 +65,20 @@ namespace BloodConnect.ViewModels
             
         }
 
+        private void LogoutDonor()
+        {
+            Preferences.Remove("userId");
+            Application.Current.MainPage = new NavigationPage(new Login());
+        }
+
+        private async Task DeleteRequest(string key)
+        {
+           bool response =  await BloodRequestService.DeleteRequestAsync(key);
+            if (response)
+            {
+                await Application.Current.MainPage.DisplayAlert("Delete Successful", "Your request to delete the Donation entry is successfully removed", "ok");
+                BloodRequests = await new BloodRequestService().fetchAllRequestsByUser(userId);
+            }
+        }
     }
 }

@@ -57,7 +57,7 @@
                         </Image.Source>
                     </Image>
 
-                    <Entry Grid.Column="1" TextColor="CadetBlue" Placeholder="enter password" Text="{Binding Password}" VerticalOptions="Center"/>
+                    <Entry Grid.Column="1" IsPassword="True" TextColor="CadetBlue" Placeholder="enter password" Text="{Binding Password}" VerticalOptions="Center"/>
                 </Grid>
 
                 <!--<local:InputView Glyph="&#xf023;" PlaceHolder = "Enter Password" Text="{Binding Password}" />-->

@@ -60,13 +60,9 @@ namespace BloodConnect.ViewModels
 
                  var authId = await firebaseAuth.CreateUserWithEmailAndPasswordAsync(Email, Password);
                 
-                //var isSignedIn = await firebaseAuth.SignInWithEmailAndPasswordAsync("saurab@gmail.com", "!Dahal123");
                 if (authId.FirebaseToken != null)
 
                 {
-                    // var authResult = await firebaseAuth.CreateUserWithEmailAndPasswordAsync(Email, Password);
-
-
                     // User created successfully, proceed with saving donor data
                     // Creating a HashMap with keys of type string and values of type int
                     Dictionary<string, string> donor = new Dictionary<string, string>();
@@ -82,6 +78,12 @@ namespace BloodConnect.ViewModels
 
                   
                     donorSignUpService.SignUp(donor, firebaseClient);
+
+                    Dictionary<string, string> userRole = new Dictionary<string, string>();
+                    userRole.Add("userid", authId.User.LocalId);
+                    userRole.Add("roletype", "donor");
+                    new UserRoleService().CreateUserRole(userRole);
+
                     Application.Current.MainPage = new NavigationPage(new Login());         
                     }
                 
