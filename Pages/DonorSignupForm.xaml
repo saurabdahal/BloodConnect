@@ -33,7 +33,7 @@
 
                 <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">
                     <Label Text="Age" VerticalOptions="Center" HorizontalOptions="Center"/>
-                    <Entry Grid.Column="1" TextColor="CadetBlue" VerticalOptions="Center" Placeholder="Please enter your age. Must be greater than 18" Text="{Binding Age}"/>
+                    <Entry Grid.Column="1" TextColor="CadetBlue" VerticalOptions="Center" Unfocused="OnAgeUnfocused" Placeholder="Please enter your age. Must be greater than 18" Text="{Binding Age}"/>
                 </Grid>
                 <Grid ColumnDefinitions="0.3*, .7*" Margin="0,10">
                     <Label Text="Address" VerticalOptions="Center" HorizontalOptions="Center"/>

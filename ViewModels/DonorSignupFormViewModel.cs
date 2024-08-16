@@ -84,6 +84,7 @@ namespace BloodConnect.ViewModels
                     userRole.Add("roletype", "donor");
                     new UserRoleService().CreateUserRole(userRole);
 
+                    await App.Current.MainPage.DisplayAlert("Success", "Donor Profile created successfully", "OK");
                     Application.Current.MainPage = new NavigationPage(new Login());         
                     }
                 

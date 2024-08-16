@@ -48,32 +48,25 @@ namespace BloodConnect.Services
         {
             try
             {
-                // Fetch all blood requests
                 var dataSnapshot = await FirebaseInitializer.firebaseClient
                     .Child("BloodRequest")
                     .OnceAsync<BloodRequestModel>();
 
-                // Prepare the list to hold the results
                 var bloodRequests = new List<BloodRequestWithKey>();
 
-                // Fetch all donors in a single batch
                 var donorSnapshots = await FirebaseInitializer.firebaseClient
                     .Child("Donor")
                     .OnceAsync<Donor>();
 
-                // Convert donor snapshots to a dictionary for quick lookup
                 var donors = donorSnapshots.ToDictionary(d => d.Object.DonorId, d => d.Object);
 
-                // Iterate over each blood request
                 foreach (var childSnapshot in dataSnapshot)
                 {
                     var request = childSnapshot.Object;
                     if (request != null)
                     {
-                        // Check if donor exists in the dictionary
                         donors.TryGetValue(request.UserId, out var donorVar);
 
-                        // Add the blood request with its corresponding donor
                         bloodRequests.Add(new BloodRequestWithKey
                         {
                             Key = childSnapshot.Key,
@@ -87,8 +80,6 @@ namespace BloodConnect.Services
             }
             catch (Exception ex)
             {
-                // Log or handle the exception
-                Console.WriteLine($"Error fetching blood requests: {ex.Message}");
                 return new List<BloodRequestWithKey>();
             }
         }

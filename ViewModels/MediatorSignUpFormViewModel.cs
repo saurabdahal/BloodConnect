@@ -93,6 +93,8 @@ namespace BloodConnect.ViewModels
                     userRole.Add("roletype", "mediator");
                     new UserRoleService().CreateUserRole(userRole);
 
+                    await App.Current.MainPage.DisplayAlert("Success", "Mediator Profile created successfully", "OK");
+
                     Application.Current.MainPage = new NavigationPage(new Login());
                 }
 
